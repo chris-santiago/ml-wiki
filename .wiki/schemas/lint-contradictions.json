@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lint-contradictions",
+  "type": "object",
+  "required": ["contradictions"],
+  "properties": {
+    "contradictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["frag_id_a", "frag_id_b", "explanation"],
+        "properties": {
+          "frag_id_a": {"type": "string"},
+          "frag_id_b": {"type": "string"},
+          "explanation": {"type": "string"}
+        }
+      }
+    }
+  }
+}

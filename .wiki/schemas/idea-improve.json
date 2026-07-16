@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "idea-improve",
+  "type": "object",
+  "required": ["supporting", "contradicting", "gaps", "suggestions", "sources", "tags", "fragments"],
+  "properties": {
+    "supporting": {"type": "string", "minLength": 1},
+    "contradicting": {"type": "string", "minLength": 1},
+    "gaps": {"type": "string", "minLength": 1},
+    "suggestions": {"type": "string", "minLength": 1},
+    "sources": {"type": "array", "items": {"type": "string"}},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "fragments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["seq", "type", "title"],
+        "properties": {
+          "seq": {"type": "integer", "minimum": 1},
+          "type": {"type": "string", "enum": ["claim", "method", "finding", "dataset", "metric", "question", "definition", "description"]},
+          "title": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

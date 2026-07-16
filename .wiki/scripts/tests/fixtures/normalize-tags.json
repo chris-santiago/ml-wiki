@@ -1,0 +1,16 @@
+{
+  "aliases": {
+    "gnn": "graph-neural-networks",
+    "gcn": "graph-neural-networks",
+    "graph-nn": "graph-neural-networks",
+    "fraud": "fraud-detection",
+    "credit-fraud": "fraud-detection",
+    "anomaly": "anomaly-detection",
+    "outlier-detection": "anomaly-detection",
+    "xgb": "gradient-boosting",
+    "xgboost": "gradient-boosting",
+    "lightgbm": "gradient-boosting",
+    "imbalance": "class-imbalance",
+    "class-imbalanced": "class-imbalance"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "build-map",
+  "description": "Build agent thematic map output",
+  "type": "object",
+  "required": ["map"],
+  "properties": {
+    "map": {"type": "string", "minLength": 1}
+  }
+}

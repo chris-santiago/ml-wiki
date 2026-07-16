@@ -1,0 +1,14 @@
+{
+  "contradictions": [
+    {
+      "frag_id_a": "xu2022graph#f1",
+      "frag_id_b": "bolton2001statistical#f1",
+      "explanation": "xu2022graph claims GNNs outperform tabular models by 12–18 pp AUC-PR, while bolton2001statistical claims velocity features retain 85% of neural-model signal — these figures imply different absolute performance gaps and cannot both be precisely correct on comparable benchmarks."
+    },
+    {
+      "frag_id_a": "liu2021pick#f3",
+      "frag_id_b": "carcillo2018scarff#f2",
+      "explanation": "liu2021pick asserts that self-paced sampling yields the largest gains under extreme class imbalance (>1:500), whereas carcillo2018scarff reports that streaming retraining frequency dominates sampling strategy in reducing missed fraud on concept-drifting streams — the two findings conflict on the primary lever for improving recall."
+    }
+  ]
+}

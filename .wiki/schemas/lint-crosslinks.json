@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "lint-crosslinks",
+  "type": "object",
+  "required": ["crosslinks"],
+  "properties": {
+    "crosslinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entry_a", "entry_b", "explanation"],
+        "properties": {
+          "entry_a": {"type": "string"},
+          "entry_b": {"type": "string"},
+          "explanation": {"type": "string"}
+        }
+      }
+    }
+  }
+}

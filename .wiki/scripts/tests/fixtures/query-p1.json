@@ -1,0 +1,14 @@
+{
+  "routing": {
+    "decision": "needs_pages",
+    "coverage": "partial — index contains relevant fragments on GNN fraud detection and velocity features, but full page text is needed to compare methodology details",
+    "specificity": "high — question asks for specific architectural comparison between two named approaches",
+    "source_diversity": "low — only two entries appear relevant; additional page content needed to verify",
+    "question_type": "comparative",
+    "ambiguity": "low — the question is precisely scoped to model architecture comparison on fraud datasets"
+  },
+  "needed_page_ids": [
+    "xu2022graph",
+    "bolton2001statistical"
+  ]
+}

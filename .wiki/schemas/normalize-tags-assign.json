@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "normalize-tags-assign",
+  "type": "object",
+  "required": ["assign", "new", "remove"],
+  "properties": {
+    "assign": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tag", "canonical"],
+        "properties": {
+          "tag": { "type": "string" },
+          "canonical": { "type": "string" }
+        }
+      }
+    },
+    "new": { "type": "array", "items": { "type": "string" } },
+    "remove": { "type": "array", "items": { "type": "string" } }
+  }
+}

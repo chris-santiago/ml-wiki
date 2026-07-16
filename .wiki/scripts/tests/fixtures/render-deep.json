@@ -1,0 +1,36 @@
+{
+  "summary": "This paper presents a graph neural network (GNN) framework for real-time fraud detection in financial transaction networks. The authors model transactions as a heterogeneous graph where nodes represent accounts and edges encode payment flows, enabling the detection of coordinated fraud rings that evade account-level classifiers. The method achieves state-of-the-art precision-recall on three industry datasets while operating within sub-100ms latency constraints. A key contribution is the temporal edge sampling strategy, which preserves temporal ordering without requiring expensive graph re-materialization at inference time.",
+  "key_claims": "- GNN-based fraud detection outperforms tabular gradient-boosting baselines by 12–18 pp AUC-PR on high-value transaction sets.\n- Temporal edge sampling reduces false negatives on bust-out fraud patterns by 34% compared to static neighborhood aggregation.\n- The proposed heterogeneous message-passing scheme scales to graphs with 10^8 edges using a two-hop neighborhood budget of 256 neighbors per node.\n- Transfer learning across merchant categories preserves 90% of in-domain performance with only 5% of labeled target-domain transactions.",
+  "methods": "The authors construct a bipartite account–merchant graph from six months of payment data and augment it with device-fingerprint and IP-subnet edges. Node features are derived from 90-day aggregated statistics (velocity, amount distributions, temporal entropy). The GNN uses three layers of heterogeneous attention aggregation with a sinusoidal positional encoding of transaction timestamps. Training uses a focal loss with class imbalance ratio 1:400 and a curriculum schedule that presents easy negatives first. Hyperparameters are tuned with Optuna on a held-out validation window.",
+  "results": "On the PaySim2 benchmark the model reaches AUC-ROC 0.981, AUC-PR 0.743, and F1 0.71 at the operating threshold. On the proprietary card-network dataset (anonymized) precision is 0.89 at 5% false-positive rate. Latency at p99 is 78 ms on a single A10 GPU, meeting the real-time SLA. Ablations show that removing temporal encoding degrades AUC-PR by 6 pp.",
+  "limitations": "Evaluation is conducted on two proprietary datasets that cannot be shared, limiting reproducibility. The graph construction requires a 48-hour lookback window, which delays detection of first-party fraud on newly opened accounts. The method assumes a stable graph topology and may degrade under distribution shift caused by new payment channels. Label noise from disputed-transaction chargebacks is not modeled explicitly.",
+  "tags": [
+    "fraud-detection",
+    "graph-neural-networks",
+    "transaction-networks",
+    "anomaly-detection",
+    "temporal-graphs"
+  ],
+  "fragments": [
+    {
+      "seq": 1,
+      "type": "claim",
+      "title": "GNN with temporal edge sampling outperforms tabular baselines by 12–18 pp AUC-PR"
+    },
+    {
+      "seq": 2,
+      "type": "method",
+      "title": "Heterogeneous attention GNN with sinusoidal timestamp encoding on account–merchant bipartite graph"
+    },
+    {
+      "seq": 3,
+      "type": "finding",
+      "title": "Temporal encoding ablation reduces AUC-PR by 6 pp, confirming importance of ordering"
+    },
+    {
+      "seq": 4,
+      "type": "metric",
+      "title": "p99 inference latency of 78 ms on A10 GPU meets real-time SLA"
+    }
+  ]
+}

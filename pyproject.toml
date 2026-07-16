@@ -1,0 +1,15 @@
+[project]
+name = "ml-wiki"
+version = "0.1.0"
+requires-python = ">=3.11"
+
+[dependency-groups]
+test = ["pytest", "pymupdf", "pyyaml", "click", "openai", "jsonschema", "numpy"]
+
+[tool.pytest.ini_options]
+markers = [
+    "unit: mocked _run_* helpers, fast",
+    "integration: real subprocess calls, requires wiki_env",
+    "smoke: subprocess entry-point validation only",
+]
+testpaths = [".wiki/scripts/tests"]

@@ -1,0 +1,19 @@
+{
+  "crosslinks": [
+    {
+      "entry_a": "xu2022graph",
+      "entry_b": "dou2020enhancing",
+      "explanation": "Both entries address GNN-based fraud detection on heterogeneous graphs; xu2022graph cites the neighbor-camouflage problem that dou2020enhancing directly solves, making a bidirectional link highly relevant."
+    },
+    {
+      "entry_a": "bolton2001statistical",
+      "entry_b": "carcillo2018scarff",
+      "explanation": "bolton2001statistical establishes the velocity-feature baseline that carcillo2018scarff extends with streaming retraining; the evolutionary relationship warrants an explicit link between the two pages."
+    },
+    {
+      "entry_a": "xu2022graph",
+      "entry_b": "pareja2020evolvegcn",
+      "explanation": "xu2022graph uses static heterogeneous GNN while pareja2020evolvegcn proposes dynamic GNN; the contrast in temporal modeling strategy is directly relevant to the fraud detection temporal-graph idea entry."
+    }
+  ]
+}

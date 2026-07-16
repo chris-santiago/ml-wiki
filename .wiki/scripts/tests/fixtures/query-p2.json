@@ -1,0 +1,29 @@
+{
+  "query": "How do graph-based methods compare to tabular approaches for real-time credit card fraud detection?",
+  "title": "Graph vs. Tabular Methods for Real-Time Credit Card Fraud Detection",
+  "synthesis": "Graph-based fraud detection systems model the relational structure of financial transactions, allowing them to identify coordinated fraud rings and multi-hop collusion patterns that are invisible to account-level tabular classifiers. [[xu2022graph]] demonstrates that a heterogeneous GNN operating on an account–merchant bipartite graph achieves 12–18 pp higher AUC-PR than gradient-boosted tabular models on high-value transaction sets, at the cost of higher infrastructure complexity and a 48-hour graph lookback requirement.\n\nTabular approaches, by contrast, excel in regulatory environments where model explainability is mandated. [[bolton2001statistical]] shows that velocity features over rolling time windows retain 85% of the discriminative signal achievable by neural models while providing transparent, auditable decision rules compatible with GDPR Article 22. In practice, many production systems combine both paradigms: a fast logistic-regression scorer for real-time decisioning and a GNN-based batch job that flags accounts for investigation.\n\nThe key trade-offs are latency versus expressiveness and interpretability versus recall. Graph models require graph materialization and multi-hop neighborhood sampling, pushing p99 latency to 78–120 ms even on GPU hardware, whereas tabular models can score transactions in under 5 ms on commodity CPUs. The choice between approaches should be driven by the fraud typology mix: card-present counterfeit fraud skews toward tabular velocity signals, while first-party bust-out and account-takeover schemes benefit most from graph topology features.",
+  "tags": [
+    "fraud-detection",
+    "graph-neural-networks",
+    "tabular-ml",
+    "real-time-inference",
+    "credit-card"
+  ],
+  "fragments": [
+    {
+      "seq": 1,
+      "type": "finding",
+      "title": "GNNs outperform tabular baselines by 12–18 pp AUC-PR on high-value transaction fraud"
+    },
+    {
+      "seq": 2,
+      "type": "claim",
+      "title": "Velocity features retain 85% of neural-model signal while remaining GDPR-explainable"
+    },
+    {
+      "seq": 3,
+      "type": "metric",
+      "title": "Graph models p99 latency: 78–120 ms GPU vs. <5 ms CPU for tabular scorers"
+    }
+  ]
+}

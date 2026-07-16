@@ -1,0 +1,34 @@
+{
+  "synthesis": "Graph-based fraud detection has matured significantly since this synthesis was first written. [[xu2022graph]] established that heterogeneous GNNs on account–merchant bipartite graphs outperform tabular baselines by 12–18 pp AUC-PR, and subsequent work has refined both the architectural choices and the operational constraints. [[zhang2022fraudre]] extends the relational graph approach to e-commerce fraud with a relation-aware aggregation scheme that is robust to label noise from disputed transactions, and [[dou2020enhancing]] introduces camouflage-resistant neighbor aggregation to counteract fraudster evasion strategies.\n\nThe tabular baseline literature has also progressed. [[carcillo2018scarff]] demonstrates that streaming retraining of lightweight classifiers substantially closes the gap with static GNN models in high-drift environments, suggesting that the appropriate architectural choice depends strongly on the velocity of concept drift in the target deployment context.\n\nThe emerging consensus is that hybrid systems — a fast tabular scorer for real-time decisioning combined with a periodic GNN batch job for account-level risk scoring — outperform either approach in isolation on production metrics. This architecture is now documented in at least two independent industry deployments referenced in the wiki.",
+  "sources": [
+    "xu2022graph",
+    "zhang2022fraudre",
+    "dou2020enhancing",
+    "carcillo2018scarff",
+    "bolton2001statistical"
+  ],
+  "tags": [
+    "fraud-detection",
+    "graph-neural-networks",
+    "tabular-ml",
+    "concept-drift",
+    "hybrid-systems"
+  ],
+  "fragments": [
+    {
+      "seq": 1,
+      "type": "finding",
+      "title": "Hybrid tabular + GNN systems outperform either architecture alone on production fraud metrics"
+    },
+    {
+      "seq": 2,
+      "type": "claim",
+      "title": "Streaming retraining of tabular models substantially closes the recall gap with static GNNs in high-drift environments"
+    },
+    {
+      "seq": 3,
+      "type": "method",
+      "title": "Camouflage-resistant neighbor aggregation counteracts fraudster evasion of GNN detectors"
+    }
+  ]
+}

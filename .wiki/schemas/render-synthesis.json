@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "render-synthesis",
+  "description": "Render agent output for synthesis-type entries",
+  "type": "object",
+  "required": ["synthesis", "sources", "tags", "fragments"],
+  "additionalProperties": false,
+  "properties": {
+    "synthesis": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Synthesized answer citing sources as [[entry_id]] (markdown)"
+    },
+    "sources": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "Entry IDs cited in the synthesis"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+      "minItems": 1,
+      "maxItems": 6
+    },
+    "fragments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["seq", "type", "title"],
+        "additionalProperties": false,
+        "properties": {
+          "seq": {"type": "integer", "minimum": 1},
+          "type": {
+            "type": "string",
+            "enum": ["claim", "method", "finding", "dataset", "metric", "question", "definition", "description"]
+          },
+          "title": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

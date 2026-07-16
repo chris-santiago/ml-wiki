@@ -1,0 +1,17 @@
+research_wiki:
+  wiki_dir: ./wiki
+  index_path: ./.wiki/index.jsonl
+  default_render_depth: shallow
+  llm:
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    models:
+      nano: openai/gpt-5.4-nano
+      mini: openai/gpt-5.4-mini
+      full: openai/gpt-5.4
+    default_params:
+      max_tokens: 16384
+      temperature: 0
+    model_overrides: {}
+  tag_aliases: {}
+  sources: []

@@ -1,0 +1,24 @@
+{
+  "summary": "This paper proposes a lightweight logistic regression model with hand-crafted velocity features for credit card fraud detection. The authors demonstrate that carefully engineered aggregate statistics over rolling time windows can match neural approaches on benchmark datasets while offering interpretable decision boundaries required by regulatory compliance. The model is deployed in a major European bank and has been in production for three years.",
+  "key_claims": "- Velocity features computed over 1-hour, 24-hour, and 7-day windows capture 85% of the discriminative signal available to deep models on this task.\n- Logistic regression with L1 regularization provides adequate fraud recall while being explainable under GDPR Article 22 requirements.",
+  "methods": "Features are engineered from raw transaction logs using rolling aggregations: count, sum, mean, and standard deviation of transaction amounts per cardholder per time bucket. Categorical features (merchant category code, country) are one-hot encoded with frequency thresholding. The model is re-trained weekly on a 90-day rolling window using scikit-learn with saga solver.",
+  "results": "AUC-ROC of 0.961 on a holdout set of 6 months of transactions from a European card issuer. Recall at 1% FPR is 0.72. The model flags approximately 0.4% of transactions for manual review.",
+  "limitations": "The model cannot capture graph-level collusion patterns between coordinated fraud rings. Feature engineering requires domain expertise and is brittle to new fraud typologies. Re-training latency of 6 hours means emerging fraud patterns may go undetected for up to 14 hours.",
+  "tags": [
+    "fraud-detection",
+    "feature-engineering",
+    "interpretable-ml"
+  ],
+  "fragments": [
+    {
+      "seq": 1,
+      "type": "claim",
+      "title": "Velocity features over rolling windows capture 85% of deep-model discriminative signal"
+    },
+    {
+      "seq": 2,
+      "type": "dataset",
+      "title": "Six-month European card-issuer holdout with 0.4% fraud base rate"
+    }
+  ]
+}

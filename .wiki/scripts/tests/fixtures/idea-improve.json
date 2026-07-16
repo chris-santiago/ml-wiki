@@ -1,0 +1,35 @@
+{
+  "supporting": "Multiple entries in the wiki support the idea that temporal edge ordering is critical for fraud detection. [[xu2022graph]] shows a 6 pp AUC-PR drop when temporal encoding is ablated, and [[pareja2020evolvegcn]] demonstrates that dynamic GNN architectures that respect edge timestamps consistently outperform static snapshots on evolving graph benchmarks. The intuition — that fraudsters exploit temporal proximity to avoid detection — is corroborated by practitioner accounts in [[van2015apate]].",
+  "contradicting": "[[bolton2001statistical]] implicitly challenges the necessity of temporal graph structure by showing that simple rolling-window velocity features capture 85% of the signal. If temporal information is already embedded in well-designed tabular features, the marginal benefit of explicit graph-temporal modeling may be smaller than claimed. Additionally, [[carcillo2018scarff]] finds that streaming retraining of logistic models reduces the temporal degradation gap versus GNNs substantially.",
+  "gaps": "1. No wiki entry evaluates temporal GNNs on first-party (synthetic identity) fraud, where temporal patterns differ markedly from third-party card fraud.\n2. The interaction between temporal edge ordering and graph topology (sparse vs. dense merchant clusters) is unexplored in the indexed literature.\n3. There is no entry addressing how temporal GNNs perform under concept drift caused by new payment channels (e.g., BNPL, instant bank transfers).",
+  "suggestions": "1. Ingest [[rossi2020temporal]] (Temporal Graph Networks) as it provides a principled framework for continuous-time dynamic graphs that would strengthen the theoretical grounding of this idea.\n2. Add a fragment comparing static-snapshot GNN vs. continuous-time GNN on the same fraud dataset to make the performance gap concrete.\n3. Consider scoping the idea more narrowly to card-present fraud, where temporal proximity of transactions is a well-documented fraud signal, versus card-not-present where timing patterns differ.",
+  "sources": [
+    "xu2022graph",
+    "bolton2001statistical",
+    "pareja2020evolvegcn",
+    "carcillo2018scarff"
+  ],
+  "tags": [
+    "fraud-detection",
+    "temporal-graphs",
+    "graph-neural-networks",
+    "dynamic-graphs"
+  ],
+  "fragments": [
+    {
+      "seq": 1,
+      "type": "question",
+      "title": "Does explicit temporal edge ordering add signal beyond well-engineered rolling-window velocity features?"
+    },
+    {
+      "seq": 2,
+      "type": "finding",
+      "title": "Temporal encoding ablation in heterogeneous GNN reduces AUC-PR by 6 pp on payment fraud"
+    },
+    {
+      "seq": 3,
+      "type": "definition",
+      "title": "Temporal edge ordering: constraint that message passing only aggregates from edges with earlier timestamps"
+    }
+  ]
+}

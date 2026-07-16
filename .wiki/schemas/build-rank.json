@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "build-rank",
+  "description": "Build agent related link ranking output",
+  "type": "object",
+  "required": ["related"],
+  "properties": {
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "reason"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      },
+      "minItems": 1,
+      "maxItems": 15
+    }
+  }
+}

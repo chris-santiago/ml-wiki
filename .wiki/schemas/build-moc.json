@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "build-moc",
+  "description": "Build agent MOC narrative output (no listing — Python generates that)",
+  "type": "object",
+  "required": ["narrative", "subgroups", "tensions", "evolution"],
+  "properties": {
+    "narrative": {"type": "string", "minLength": 1},
+    "subgroups": {"type": "string", "minLength": 1},
+    "tensions": {"type": "string", "minLength": 1},
+    "evolution": {"type": "string", "minLength": 1}
+  }
+}

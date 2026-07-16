@@ -1,0 +1,24 @@
+{
+  "related": [
+    {
+      "id": "xu2022graph",
+      "reason": "Directly comparable graph-based fraud detection approach using heterogeneous GNN on payment networks"
+    },
+    {
+      "id": "bolton2001statistical",
+      "reason": "Foundational tabular baseline; velocity features established here are the comparison point for GNN gains"
+    },
+    {
+      "id": "liu2021pick",
+      "reason": "Addresses the same class imbalance challenge with a self-paced sampling strategy applicable to fraud"
+    },
+    {
+      "id": "dou2020enhancing",
+      "reason": "Proposes neighbor-aggregation camouflage resistance, directly relevant to adversarial fraud ring evasion"
+    },
+    {
+      "id": "zhang2022fraudre",
+      "reason": "Studies relation-aware GNN for e-commerce fraud; methodology transfers to card-network fraud"
+    }
+  ]
+}

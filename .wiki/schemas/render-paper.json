@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "render-paper",
+  "description": "Render agent output for paper-type entries",
+  "type": "object",
+  "required": ["summary", "key_claims", "methods", "results", "limitations", "tags", "fragments"],
+  "additionalProperties": false,
+  "properties": {
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "description": "3-5 sentence overview (markdown)"
+    },
+    "key_claims": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Bullet list of central claims (markdown)"
+    },
+    "methods": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Methodology description (markdown)"
+    },
+    "results": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Key results (markdown)"
+    },
+    "limitations": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Limitations and caveats (markdown)"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+      "minItems": 1,
+      "maxItems": 6
+    },
+    "fragments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["seq", "type", "title"],
+        "additionalProperties": false,
+        "properties": {
+          "seq": {"type": "integer", "minimum": 1},
+          "type": {
+            "type": "string",
+            "enum": ["claim", "method", "finding", "dataset", "metric", "question", "definition", "description"]
+          },
+          "title": {"type": "string", "minLength": 1}
+        }
+      },
+      "minItems": 1
+    }
+  }
+}

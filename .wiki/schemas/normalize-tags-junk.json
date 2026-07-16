@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "normalize-tags-junk",
+  "type": "object",
+  "required": ["keep", "remove"],
+  "properties": {
+    "keep": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "remove": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "query-p2",
+  "description": "Query agent Pass 2 output — full synthesis",
+  "type": "object",
+  "required": ["query", "synthesis", "tags"],
+  "properties": {
+    "query": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1, "maxLength": 120},
+    "synthesis": {"type": "string", "minLength": 1},
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "fragments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["seq", "type", "title"],
+        "properties": {
+          "seq": {"type": "integer", "minimum": 1},
+          "type": {"type": "string", "enum": ["claim", "method", "finding", "dataset", "metric", "question", "definition", "description"]},
+          "title": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

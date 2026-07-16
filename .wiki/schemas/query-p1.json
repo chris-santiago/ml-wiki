@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "query-p1",
+  "description": "Query agent Pass 1 output — routing decision + optional direct answer",
+  "type": "object",
+  "required": ["routing"],
+  "properties": {
+    "routing": {
+      "type": "object",
+      "required": ["decision"],
+      "properties": {
+        "decision": {"type": "string", "enum": ["direct", "needs_pages"]},
+        "coverage": {"type": "string"},
+        "specificity": {"type": "string"},
+        "source_diversity": {"type": "string"},
+        "question_type": {"type": "string"},
+        "ambiguity": {"type": "string"}
+      }
+    },
+    "query": {"type": "string"},
+    "synthesis": {"type": "string"},
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "fragments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["seq", "type", "title"],
+        "properties": {
+          "seq": {"type": "integer", "minimum": 1},
+          "type": {"type": "string", "enum": ["claim", "method", "finding", "dataset", "metric", "question", "definition", "description"]},
+          "title": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "needed_page_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    }
+  }
+}

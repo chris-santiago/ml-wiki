@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "render-experiment",
+  "description": "Render agent output for experiment-type entries",
+  "type": "object",
+  "required": ["hypothesis", "setup", "results", "implications", "tags", "fragments"],
+  "additionalProperties": false,
+  "properties": {
+    "hypothesis": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What was being tested and why"
+    },
+    "setup": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Dataset, model configuration, training details (markdown)"
+    },
+    "results": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What was observed, key metrics (markdown)"
+    },
+    "implications": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What the results suggest for future work (markdown)"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+      "minItems": 1,
+      "maxItems": 6
+    },
+    "fragments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["seq", "type", "title"],
+        "additionalProperties": false,
+        "properties": {
+          "seq": {"type": "integer", "minimum": 1},
+          "type": {
+            "type": "string",
+            "enum": ["claim", "method", "finding", "dataset", "metric", "question", "definition", "description"]
+          },
+          "title": {"type": "string", "minLength": 1}
+        }
+      },
+      "minItems": 1
+    }
+  }
+}
